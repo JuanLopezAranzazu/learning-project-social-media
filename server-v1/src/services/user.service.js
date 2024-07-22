@@ -56,7 +56,7 @@ class UserService {
       throw boom.notFound("User not found");
     }
     await user.destroy();
-    return id;
+    return { message: "Post deleted" };
   }
 }
 

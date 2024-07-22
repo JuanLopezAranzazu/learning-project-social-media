@@ -57,7 +57,7 @@ class PostService {
       throw boom.notFound("Post not found");
     }
     await post.destroy();
-    return id;
+    return { message: "Post deleted" };
   }
 }
 

@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const { config } = require("./config/config");
+// middlewares
 const {
   logErrors,
   errorHandler,
@@ -39,4 +40,5 @@ app.post("/db-check", async (req, res) => {
   }
 });
 
+// Iniciar servidor
 app.listen(port, () => console.log(`Servidor corriendo en el puerto ${port}`));

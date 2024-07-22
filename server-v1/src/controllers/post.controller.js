@@ -70,8 +70,8 @@ class PostController {
     try {
       const { params, userId } = req;
       const { id } = params;
-      const postId = await postService.delete(id, userId);
-      return res.status(204).json(postId);
+      const message = await postService.delete(id, userId);
+      return res.status(200).json(message);
     } catch (error) {
       next(error);
     }

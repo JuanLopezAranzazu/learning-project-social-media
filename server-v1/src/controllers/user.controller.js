@@ -57,8 +57,8 @@ class UserController {
     try {
       const { params } = req;
       const { id } = params;
-      const userId = await userService.delete(id);
-      return res.status(204).json(userId);
+      const message = await userService.delete(id);
+      return res.status(200).json(message);
     } catch (error) {
       next(error);
     }

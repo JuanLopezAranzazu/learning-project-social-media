@@ -59,7 +59,7 @@ class CommentService {
       throw boom.notFound("Comment not found");
     }
     await comment.destroy();
-    return id;
+    return { message: "Comment deleted" };
   }
 }
 
