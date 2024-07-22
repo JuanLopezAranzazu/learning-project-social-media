@@ -1,0 +1,23 @@
+POST http://localhost:3001/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "email": "juan123@gmail.com",
+  "password": "juan123"
+}
+
+###
+
+POST http://localhost:3001/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "name": "Juan Lopez",
+  "email": "juan123@gmail.com",
+  "password": "juan123"
+}
+
+###
+
+GET http://localhost:3001/api/v1/auth/whoami
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlzQWRtaW4iOnRydWUsImlhdCI6MTcyMTI0NjYxMywiZXhwIjoxNzIxMjU3NDEzfQ.is3kdDbqnEvxzXnZJ-lEUpmxl9_juBow45sR-ZXEEZk

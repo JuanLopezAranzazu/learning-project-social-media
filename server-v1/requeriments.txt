@@ -1,0 +1,22 @@
+git clone
+
+npm i
+
+devDependencies
+
+npm i nodemon -D
+
+dependencies
+
+npm i express
+npm i dotenv
+npm i cors
+npm i jsonwebtoken
+npm i argon2
+npm i joi
+npm i @hapi/boom
+npm i pg
+npm i pg-hstore
+npm i sequelize
+npm i multer
+npm i path
