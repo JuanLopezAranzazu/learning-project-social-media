@@ -55,7 +55,7 @@ class PostController {
     try {
       const { params, body, userId } = req;
       const { id } = params;
-      const updatedPost = await postService.update(id, {
+      const updatedPost = await postService.update(id, userId, {
         ...body,
         userId,
         image: req.file ? `/uploads/${req.file.filename}` : null,
@@ -68,9 +68,9 @@ class PostController {
 
   async deletePost(req, res, next) {
     try {
-      const { params } = req;
+      const { params, userId } = req;
       const { id } = params;
-      const postId = await postService.delete(id);
+      const postId = await postService.delete(id, userId);
       return res.status(204).json(postId);
     } catch (error) {
       next(error);

@@ -1,5 +1,6 @@
 const Joi = require("joi");
 
+// Definición de los esquemas para la entidad Post
 const id = Joi.number();
 const title = Joi.string().min(3).max(30);
 const content = Joi.string();

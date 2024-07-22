@@ -11,20 +11,17 @@ const validatorHandler = require("./../middlewares/validatorHandler");
 const { createUserSchema, loginUserSchema } = require("../schemas/user.schema");
 
 // routes
-// api para registrar un usuario
 router.post(
   "/register",
   upload.single("image"), // middleware para subir la imagen
   validatorHandler(createUserSchema, "body"),
   authController.registerUser
 );
-// api para iniciar sesión
 router.post(
   "/login",
   validatorHandler(loginUserSchema, "body"),
   authController.userLogin
 );
-// api para obtener la información del usuario autenticado
 router.get("/whoami", verifyJWT, authController.whoAmI);
 
 module.exports = router;

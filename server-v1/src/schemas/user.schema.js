@@ -1,5 +1,6 @@
 const Joi = require("joi");
 
+// Definición de los esquemas para la entidad User
 const id = Joi.number();
 const name = Joi.string().min(3).max(30);
 const email = Joi.string().email();

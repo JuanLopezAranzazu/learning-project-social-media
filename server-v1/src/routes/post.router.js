@@ -15,18 +15,14 @@ const {
 } = require("./../schemas/post.schema");
 
 // routes
-// api para obtener todas las publicaciones
 router.get("/all", verifyJWT, postController.findAllPosts);
-// api para obtener todas las publicaciones de un publicacion
 router.get("/user", verifyJWT, postController.findAllPostsByUser);
-// api para obtener un usuario por id
 router.get(
   "/:id",
   verifyJWT,
   validatorHandler(getPostSchema, "params"),
   postController.findOnePost
 );
-// api para crear una publicacion
 router.post(
   "/",
   verifyJWT,
@@ -34,7 +30,6 @@ router.post(
   validatorHandler(createPostSchema, "body"),
   postController.createPost
 );
-// api para actualizar una publicacion
 router.put(
   "/:id",
   verifyJWT,
@@ -43,7 +38,6 @@ router.put(
   validatorHandler(updatePostSchema, "body"),
   postController.updatePost
 );
-// api para eliminar una publicacion
 router.delete(
   "/:id",
   verifyJWT,

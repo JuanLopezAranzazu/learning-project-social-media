@@ -27,13 +27,23 @@ class PostService {
     return post;
   }
 
+  async findOneByUser(id, userId) {
+    const post = await models.Post.findOne({
+      where: { id, userId },
+    });
+    if (!post) {
+      throw boom.notFound("Post not found");
+    }
+    return post;
+  }
+
   async create(payload) {
     const savedUser = await models.User.create(payload, { returning: true });
     return savedUser;
   }
 
-  async update(id, payload) {
-    const post = await this.findOne(id);
+  async update(id, userId, payload) {
+    const post = await this.findOneByUser(id, userId);
     if (!post) {
       throw boom.notFound("Post not found");
     }
@@ -41,8 +51,8 @@ class PostService {
     return updatedPost;
   }
 
-  async delete(id) {
-    const post = await this.findOne(id);
+  async delete(id, userId) {
+    const post = await this.findOneByUser(id, userId);
     if (!post) {
       throw boom.notFound("Post not found");
     }

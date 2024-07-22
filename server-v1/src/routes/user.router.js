@@ -16,9 +16,7 @@ const {
 } = require("../schemas/user.schema");
 
 // routes
-// api para obtener todos los usuarios
 router.get("/all", verifyJWT, admin, userController.findAllUsers);
-// api para obtener un usuario por id
 router.get(
   "/:id",
   verifyJWT,
@@ -26,7 +24,6 @@ router.get(
   validatorHandler(getUserSchema, "params"),
   userController.findOneUser
 );
-// api para crear un usuario
 router.post(
   "/",
   verifyJWT,
@@ -35,7 +32,6 @@ router.post(
   validatorHandler(createUserSchema, "body"),
   userController.createUser
 );
-// api para actualizar un usuario
 router.put(
   "/:id",
   verifyJWT,
@@ -45,7 +41,6 @@ router.put(
   validatorHandler(updateUserSchema, "body"),
   userController.updateUser
 );
-// api para eliminar un usuario
 router.delete(
   "/:id",
   verifyJWT,
