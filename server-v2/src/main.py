@@ -3,8 +3,10 @@ from config.db import db, ma
 from config.config import config
 import models.user_model as user_model
 import models.post_model as post_model
+import models.comment_model as comment_model
 import schemas.post_schema as post_schema
 import schemas.user_schema as user_schema
+import schemas.comment_schema as comment_schema
 
 # Crear la aplicación
 app = Flask(__name__)
@@ -40,11 +42,13 @@ def post_data():
 import routes.auth_route as auth_route
 import routes.user_route as user_route
 import routes.post_route as post_route
+import routes.comment_route as comment_route
+
 # Registrar rutas
 app.register_blueprint(auth_route.auth_bp)
 app.register_blueprint(user_route.user_bp)
 app.register_blueprint(post_route.post_bp)
-
+app.register_blueprint(comment_route.comment_bp)
 
 # Manejador de errores 500
 @app.errorhandler(500)

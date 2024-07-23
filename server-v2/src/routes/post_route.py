@@ -82,5 +82,5 @@ def delete_post(id: int):
   db.session.delete(post)
   db.session.commit()
 
-  return jsonify({'message': 'User deleted'}), 204
+  return jsonify({'message': 'Post deleted'}), 204
 
