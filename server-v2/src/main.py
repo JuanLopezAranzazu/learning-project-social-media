@@ -7,6 +7,8 @@ import models.comment_model as comment_model
 import schemas.post_schema as post_schema
 import schemas.user_schema as user_schema
 import schemas.comment_schema as comment_schema
+# utils
+import utils.create_data as create_data
 
 # Crear la aplicación
 app = Flask(__name__)
@@ -20,6 +22,7 @@ ma.init_app(app)
 # Crear la base de datos
 with app.app_context():
   db.create_all()
+  create_data.create_roles()
 
 # Ruta principal
 @app.route('/')
